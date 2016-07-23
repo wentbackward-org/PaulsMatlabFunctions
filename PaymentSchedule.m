@@ -1,3 +1,33 @@
+
+function [schedule, payment] = PaymentSchedule(pv, I, n)
+% PaymentSchedule - The amortisation schedule for a loan
+% where
+%  pv = present value or total loan amount 
+%  I = the annual interest rate
+%  n = the number of payment months
+%
+% schedule is the actual schedule. Columns are:
+% - period
+% - cumulative amount paid
+% - cumulative principal paid
+% - cumulative interest paid
+% - balance after payment
+%
+% payment is the monthly payment amount
+%
+
+    r = 1 + I / 1200;
+    periods = (1:n)';
+    payment = PMT(pv,I,n);
+    paid = periods*payment;
+    % See here: https://en.wikipedia.org/wiki/Amortization_calculator
+    balance = (pv * r .^ periods) - (payment * (((r .^ periods) - 1) ./ (r - 1)) );
+    principal = pv - balance;
+    interest = paid - principal;
+    schedule = [periods paid principal interest balance];
+    
+end
+
 %%The MIT License (MIT)
 % 
 % Copyright (c) 2016 Allied Talent Industrial Ltd (Kong Kong)
@@ -20,22 +50,3 @@
 % DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 % OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 % USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-function [schedule, payment] = PaymentSchedule(pv, I, n)
-% PaymentSchedule - The amortisation schedule for a loan
-% where
-%  pv = present value or total loan amount 
-%  I = the annual interest rate
-%  n = the number of payment months
-%
-    r = 1 + I / 1200;
-    periods = (1:n)';
-    payment = PMT(pv,I,n);
-    paid = periods*payment;
-    % See here: https://en.wikipedia.org/wiki/Amortization_calculator
-    balance = (pv * r .^ periods) - (payment * (((r .^ periods) - 1) ./ (r - 1)) );
-    principal = pv - balance;
-    interest = paid - principal;
-    schedule = [periods paid principal interest balance];
-    
-end

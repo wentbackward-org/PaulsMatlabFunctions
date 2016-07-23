@@ -1,3 +1,18 @@
+
+function s(result, decimals)
+% s(results, decimals) prints a number to `decimals' places, defaulting at 4
+    if ~exist('decimals','var') || isempty(decimals)
+        decimals = 4;
+    end
+    col = columns_in(result);
+
+    numf = sprintf('%%%i.%if ', col+decimals+1, decimals);
+    format = [repmat(numf, 1, size(result,2)) '\n'];
+    fprintf(format, result');
+end
+% No tests for s()
+
+
 %%The MIT License (MIT)
 % 
 % Copyright (c) 2016 Allied Talent Industrial Ltd (Kong Kong)
@@ -21,16 +36,3 @@
 % OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 % USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
-function s(result, decimals)
-% s(results, decimals) prints a number to `decimals' places, defaulting at 4
-    if ~exist('decimals','var') || isempty(decimals)
-        decimals = 4;
-    end
-    col = columns_in(result);
-
-    numf = sprintf('%%%i.%if ', col+decimals+1, decimals);
-    format = [repmat(numf, 1, size(result,2)) '\n'];
-    fprintf(format, result');
-end
-% No tests for s()

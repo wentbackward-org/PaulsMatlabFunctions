@@ -1,3 +1,16 @@
+
+function pv = PV(fv, I, n)
+% FV calculates the period payments you need to make to achieve a
+% a particular future value
+% 
+% fv = future value
+% I = annual interest rate
+% n = number of monthly periods
+%
+    r = I / 1200;
+    pv = fv ./ (1 + r) .^ n;
+end
+
 %%The MIT License (MIT)
 % 
 % Copyright (c) 2016 Allied Talent Industrial Ltd (Kong Kong)
@@ -21,15 +34,3 @@
 % OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 % USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
-function pv = PV(fv, I, n)
-% FV calculates the period payments you need to make to achieve a
-% a particular future value
-% 
-% fv = future value
-% I = annual interest rate
-% n = number of monthly periods
-%
-    r = I / 1200;
-    pv = fv ./ (1 + r) .^ n;
-end

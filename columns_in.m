@@ -1,3 +1,10 @@
+
+function c = columns_in(m)
+% columns_in returns the number of significant decimals before the decimal
+% point in a scalar, or the same for the max of a vector or matrix
+    c = floor(log10(max(max(abs(m)))))+1;
+end
+
 %%The MIT License (MIT)
 % 
 % Copyright (c) 2016 Allied Talent Industrial Ltd (Kong Kong)
@@ -21,9 +28,3 @@
 % OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 % USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
-function c = columns_in(m)
-% columns_in returns the number of significant decimals before the decimal
-% point in a scalar, or the same for the max of a vector or matrix
-    c = floor(log10(max(max(abs(m)))))+1;
-end
