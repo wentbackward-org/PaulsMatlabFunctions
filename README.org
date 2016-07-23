@@ -1,4 +1,4 @@
-* Pauls Matlab Functions
+* Paul's Matlab Functions
 
 A bunch of useful functions I've written. I'll add them slowly, as I document and create tests for them. Most of them should work with scalars or vectors. Some may work with matrices (if it makes sense). I have these in a folder added to my matlab path.
 
