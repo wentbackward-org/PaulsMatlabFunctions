@@ -22,8 +22,7 @@
 % USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 function [schedule, payment] = PaymentSchedule(pv, I, n)
-% Ipayments Interest and Principal payment schedules
-%
+% PaymentSchedule - The amortisation schedule for a loan
 % where
 %  pv = present value or total loan amount 
 %  I = the annual interest rate
