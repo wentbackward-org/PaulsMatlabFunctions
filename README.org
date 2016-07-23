@@ -1,0 +1,6 @@
+* Pauls Matlab Functions
+
+A bunch of useful functions I've written. I'll add them slowly, as I create tests for them.
+
+** Financial
+
