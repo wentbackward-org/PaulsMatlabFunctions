@@ -1,3 +1,27 @@
+%%The MIT License (MIT)
+% 
+% Copyright (c) 2016 Allied Talent Industrial Ltd (Kong Kong)
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a
+% copy of this software and associated documentation files (the
+% "Software"), to deal in the Software without restriction, including
+% without limitation the rights to use, copy, modify, merge, publish,
+% distribute, sublicense, and/or sell copies of the Software, and to permit
+% persons to whom the Software is furnished to do so, subject to the
+% following conditions:
+% 
+% The above copyright notice and this permission notice shall be included
+% in all copies or substantial portions of the Software.
+% 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+% NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+% DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+% OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+% USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
 %% Main function to generate tests
 function tests = testPaulsFunctions
     tests = functiontests(localfunctions);
@@ -123,27 +147,27 @@ function testFVpayment(testCase)
     verifyEqual(testCase, fv, result);
 end
 function testFVpaymentnotional(testCase)
-    pv = [1000 2000];
-    I = 12;
+    pv = [100 200];
+    I = 3;
     N = 48;
-    fv = round(FV(pv, I, N),4);
-    result = [0 0];
+    fv = round(FVpayment(pv, I, N),4);
+    result = [5093.1208 10186.2417];
     verifyEqual(testCase, fv, result);
 end
 function testFVpaymenttenor(testCase)
-    pv = 1000;
-    I = 12;
+    pv = 100;
+    I = 3;
     N = (1:5) * 12;
-    fv = round(FV(pv, I, N),4);
-    result = [0 0 0 0 0];
+    fv = round(FVpayment(pv, I, N),4);
+    result = [1216.6383 2470.2818 3762.0560 5093.1208 6464.6713];
     verifyEqual(testCase, fv, result);
 end
 function testFVpaymentcoupon(testCase)
-    pv = 1000;
+    pv = 100;
     I = 1:0.5:3;
     N = 12;
-    fv = round(FV(pv, I, N),4);
-    result = [0 0 0 0 0];
+    fv = round(FVpayment(pv, I, N),4);
+    result = [1205.5153 1208.2845 1211.0613 1213.8459 1216.6383];
     verifyEqual(testCase, fv, result);
 end
 
