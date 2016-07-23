@@ -171,6 +171,14 @@ function testFVpaymentcoupon(testCase)
     verifyEqual(testCase, fv, result);
 end
 
+function testPaymentSchedule(testCase)
+    [schedule, payment] = PaymentSchedule(250000,5,360);
+    
+    verifyEqual(testCase, 1342.05, round(payment,2));
+    verifyEqual(testCase, [360.00 483139.46 250000.00 233139.46 0.00], round(schedule(360,:),2));
+    verifyEqual(testCase, [1.00   1342.05    300.39   1041.67 249699.61], round(schedule(1,:),2));
+end
+
 %% Test utilities
 function test_columns_in(testCase)
     r = columns_in(2^32);

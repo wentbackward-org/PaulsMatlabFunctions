@@ -21,21 +21,22 @@
 % OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 % USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
-function p = PMT(pv, I, n)
-% PMT  Calculate the monthly payment for a fixed rate loan.
-%  P = PMT(10000, 2.57, 36) returns the payment for a 10,000 loan with
-%      an annualised interest rate of 2.57%, payed back over 36 months
+function [schedule, payment] = PaymentSchedule(pv, I, n)
+% Ipayments Interest and Principal payment schedules
+%
 % where
 %  pv = present value or total loan amount 
 %  I = the annual interest rate
 %  n = the number of payment months
 %
-% pv, I and n can be vectors, e.g. n = (1:5)*12 will produce a vector
-% of payments for betwen 1 and 5 years
-%
-
- r = I / 1200;
- p = (pv .* r) ./ (1 - exp( (-n) .* log(1+r) ));
- 
+    r = 1 + I / 1200;
+    periods = (1:n)';
+    payment = PMT(pv,I,n);
+    paid = periods*payment;
+    % See here: https://en.wikipedia.org/wiki/Amortization_calculator
+    balance = (pv * r .^ periods) - (payment * (((r .^ periods) - 1) ./ (r - 1)) );
+    principal = pv - balance;
+    interest = paid - principal;
+    schedule = [periods paid principal interest balance];
+    
 end
