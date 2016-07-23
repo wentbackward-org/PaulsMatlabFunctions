@@ -3,4 +3,5 @@
 A bunch of useful functions I've written. I'll add them slowly, as I create tests for them.
 
 ** Financial
-- PMT - Loan payment calculator
+*** PMT - Loan payment calculator
+*** TODO IPMT - Loan interest payment calculator
