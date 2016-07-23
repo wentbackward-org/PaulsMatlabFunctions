@@ -171,3 +171,12 @@ function testFVpaymentcoupon(testCase)
     verifyEqual(testCase, fv, result);
 end
 
+%% Test utilities
+function test_columns_in(testCase)
+    r = columns_in(2^32);
+    verifyEqual(testCase, 10, r);
+    
+    r = columns_in(1);
+    verifyEqual(testCase, 1, r);
+end
+

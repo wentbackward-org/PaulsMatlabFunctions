@@ -27,7 +27,7 @@ function s(result, decimals)
     if ~exist('decimals','var') || isempty(decimals)
         decimals = 4;
     end
-    col = floor(log10(max(max(abs(result)))))+1;
+    col = columns_in(result);
 
     numf = sprintf('%%%i.%if ', col+decimals+1, decimals);
     format = [repmat(numf, 1, size(result,2)) '\n'];
