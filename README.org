@@ -9,4 +9,5 @@ A bunch of useful functions I've written. I'll add them slowly, as I document an
     - FV - Future value, or the total amount of a loan you pay including interest.
     - PV - Present value, or how much you need to invest now.
 ** Utilities
-    - s - Show a number [vector or matrix]. Does matlab drive you crazy having to fprintf everything, just use `s'
+    - s - Show a number [vector or matrix]. Does matlab drive you crazy having to fprintf everything, just use `s'.
+    - columns_in - Tells you how many decimals before the point.
