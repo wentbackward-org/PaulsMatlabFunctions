@@ -1,7 +1,12 @@
 * Pauls Matlab Functions
 
-A bunch of useful functions I've written. I'll add them slowly, as I create tests for them.
+A bunch of useful functions I've written. I'll add them slowly, as I document and create tests for them. Most of them should work with scalars or vectors. Some may work with matrices (if it makes sense). I have these in a folder added to my matlab path.
 
 ** Financial
-*** PMT - Loan payment calculator
-*** TODO IPMT - Loan interest payment calculator
+    These functions are quick to calculate loan and investment payments. They all assume an annualised 
+    rate, compounded monthly and the periods expressed in months.
+    - PMT - Loan payment calculator.
+    - FV - Future value, or the total amount of a loan you pay including interest.
+    - PV - Present value, or how much you need to invest now.
+** Utilities
+    - s - Show a number [vector or matrix]. Does matlab drive you crazy having to fprintf everything, just use `s'
