@@ -13,6 +13,7 @@ A bunch of useful functions I've written. I'll add them slowly, as I document an
     - PV - Present value, or how much you need to invest now.
     - PaymentSchedule - capture the payment or amortisation schedule of a 
       loan or mortgage.
+    - LoanCalculator - a UI to understand a loan
 ** Utilities
     - s - Show a number [vector or matrix]. Does matlab drive you crazy having to fprintf everything, just use `s'.
     - columns_in - Tells you how many decimals before the point.
@@ -22,7 +23,6 @@ A bunch of useful functions I've written. I'll add them slowly, as I document an
 |   1679 |   1889 |   2099 |   2308 |   2518 |   2728 |   2938 |   3148 |
 |   1422 |   1600 |   1778 |   1956 |   2133 |   2311 |   2489 |   2667 |
 |    757 |    851 |    946 |   1040 |   1135 |   1230 |   1324 |   1419 |
-
 >> s([amounts' PMT(amounts,2.57,48)' PMT(amounts, 2.57,60)' PMT(amounts, 2.57,120)'], 0)
 |  80000 |   1756 |   1422 |    757 |
 |  90000 |   1975 |   1600 |    851 |
@@ -32,8 +32,6 @@ A bunch of useful functions I've written. I'll add them slowly, as I document an
 | 130000 |   2853 |   2311 |   1230 |
 | 140000 |   3072 |   2489 |   1324 |
 | 150000 |   3292 |   2667 |   1419 |
-
-
 >> s(PaymentSchedule(250000,5,12),2)
 |     1.00|  21401.87|  20360.20|   1041.67| 229639.80| 
 |     2.00|  42803.74|  40805.24|   1998.50| 209194.76| 

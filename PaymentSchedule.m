@@ -1,5 +1,5 @@
 
-function [schedule, payment] = PaymentSchedule(pv, I, n)
+function [schedule, payment, interest, total] = PaymentSchedule(pv, I, n)
 % PaymentSchedule - The amortisation schedule for a loan
 % where
 %  pv = present value or total loan amount 
@@ -25,7 +25,8 @@ function [schedule, payment] = PaymentSchedule(pv, I, n)
     principal = pv - balance;
     interest = paid - principal;
     schedule = [periods paid principal interest balance];
-    
+    total = n * payment;
+    interest = total - pv;
 end
 
 %%The MIT License (MIT)
